@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAD La Costa · Guía PAD 2026</title>
+    <meta name="description" content="Guía oficial del Puntaje de Acceso Docente 2026 para el Distrito La Costa. Fechas, fórmulas y cómo reclamar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --cyan: #007a8a;
+            --cyan-light: #e0f4f7;
+            --cyan-mid: #00a0b5;
+            --pink: #c0265c;
+            --pink-light: #fce8f0;
+            --slate-50: #f8fafc;
+            --slate-100: #f1f5f9;
+            --slate-200: #e2e8f0;
+            --slate-400: #94a3b8;
+            --slate-500: #64748b;
+            --slate-700: #334155;
+            --slate-900: #0f172a;
+            --white: #ffffff;
+            --amber-bg: #fffbeb;
+            --amber-border: #fcd34d;
+            --amber-text: #92400e;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--slate-50);
+            color: var(--slate-900);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* ── BARRA DE URGENCIA ── */
+        .urgency-bar {
+            background: var(--pink);
+            color: white;
+            text-align: center;
+            padding: 10px 16px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .urgency-bar span {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ── NAVEGACIÓN ── */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--slate-200);
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 37px;
+            z-index: 100;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: 40px;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .nav-title {
+            font-size: 16px;
+            font-weight: 900;
+            color: var(--slate-900);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
+        .nav-sub {
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--slate-400);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+        }
+
+        .btn-primary {
+            background: var(--cyan-mid);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, transform 0.15s;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan);
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            background: white;
+            padding: 72px 24px 88px;
+            text-align: center;
+            border-bottom: 1px solid var(--slate-100);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--cyan-light);
+            color: var(--cyan);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            padding: 6px 16px;
+            border-radius: 100px;
+            border: 1px solid #b0e4ec;
+            margin-bottom: 28px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 72px);
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            color: var(--slate-900);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 .accent { color: var(--cyan-mid); }
+
+        .hero p {
+            color: var(--slate-500);
+            font-size: 18px;
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero p strong { color: var(--slate-700); font-weight: 700; }
+
+        .btn-hero {
+            background: var(--cyan-mid);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 14px;
+            font-weight: 900;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s, transform 0.15s;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-hero:hover { background: var(--cyan); transform: translateY(-2px); }
+
+        /* ── SECCIONES GENERALES ── */
+        section { padding: 72px 24px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .container-lg { max-width: 1080px; margin: 0 auto; }
+
+        .section-title {
+            font-size: clamp(26px, 4vw, 42px);
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--slate-500);
+            font-size: 16px;
+            margin-bottom: 48px;
+        }
+
+        /* ── TABS ── */
+        .tabs-wrapper {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--slate-200);
+            overflow: hidden;
+        }
+
+        .tabs-nav {
+            display: flex;
+            background: var(--slate-100);
+            padding: 6px;
+            gap: 4px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 16px;
+            border: none;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--slate-500);
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .tab-btn.active {
+            background: white;
+            color: var(--cyan);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .tab-content { display: none; padding: 36px; }
+        .tab-content.active { display: block; }
+
+        /* ── FÓRMULA ── */
+        .formula-box {
+            background: var(--slate-50);
+            border: 1px solid var(--slate-200);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 28px;
+            font-family: 'DM Mono', monospace;
+        }
+
+        .formula-text {
+            font-size: clamp(14px, 2.5vw, 20px);
+            font-weight: 500;
+            color: var(--slate-700);
+            line-height: 1.8;
+        }
+
+        .formula-op {
+            color: var(--pink);
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            display: block;
+            margin: 4px 0;
+        }
+
+        .formula-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        @media (max-width: 540px) { .formula-grid { grid-template-columns: 1fr; } }
+
+        .formula-card {
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid;
+        }
+
+        .formula-card.cyan {
+            background: var(--cyan-light);
+            border-color: #a8dce4;
+            color: var(--cyan);
+        }
+
+        .formula-card.pink {
+            background: var(--pink-light);
+            border-color: #f0bad0;
+            color: var(--pink);
+        }
+
+        .formula-card-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .formula-card p { font-size: 13px; color: var(--slate-600); }
+
+        /* ── TAB ANTIGÜEDAD ── */
+        .antiguedad-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 600px) { .antiguedad-grid { grid-template-columns: 1fr; } }
+
+        .dark-card {
+            background: var(--slate-900);
+            color: white;
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .dark-card p { font-size: 13px; opacity: 0.85; line-height: 1.7; margin-bottom: 20px; }
+
+        .dark-card-divider {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        .code-label {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--cyan-mid);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .example-row { font-size: 13px; margin: 6px 0; opacity: 0.7; }
+        .example-row.highlight { opacity: 1; font-weight: 700; text-decoration: underline; }
+
+        .light-card {
+            padding: 24px;
+            background: var(--slate-50);
+            border-radius: 16px;
+            border: 1px solid var(--slate-200);
+        }
+
+        .light-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 10px; color: var(--slate-900); }
+        .light-card p { font-size: 13px; color: var(--slate-500); line-height: 1.7; margin-bottom: 16px; }
+
+        .badge-warning {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--pink-light);
+            color: var(--pink);
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        /* ── SECCIÓN DARK (CRONOGRAMA) ── */
+        .dark-section {
+            background: var(--slate-900);
+            color: white;
+        }
+
+        .dark-section .section-title { color: white; }
+
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            bottom: 8px;
+            width: 2px;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            margin-bottom: 48px;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            margin-left: -2px;
+        }
+
+        .timeline-dot.cyan { background: var(--cyan-mid); }
+        .timeline-dot.pink { background: var(--pink); }
+
+        .timeline-date {
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 4px;
+        }
+
+        .timeline-date.cyan { color: var(--cyan-mid); }
+        .timeline-date.pink { color: #f472b6; }
+
+        .timeline-body h4 {
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+
+        .timeline-body p { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+        .timeline-body strong { color: rgba(255,255,255,0.85); }
+
+        .docs-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 16px;
+        }
+
+        .docs-box-title {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.35);
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .docs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 480px) { .docs-grid { grid-template-columns: 1fr; } }
+
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .doc-icon {
+            color: var(--cyan-mid);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        /* ── ALERTA / AVISO ── */
+        .alert-amber {
+            background: var(--amber-bg);
+            border: 1px solid var(--amber-border);
+            border-radius: 14px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .alert-amber h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--amber-text);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .alert-amber p { font-size: 13px; color: #78350f; line-height: 1.6; }
+
+        /* ── FAQ ── */
+        .faq-section { background: white; }
+
+        .faq-item {
+            border: 1px solid var(--slate-200);
+            border-radius: 14px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .faq-btn {
+            width: 100%;
+            padding: 20px 24px;
+            text-align: left;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--slate-900);
+            background: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.15s;
+        }
+
+        .faq-btn:hover { background: var(--slate-50); }
+
+        .faq-chevron {
+            color: var(--slate-400);
+            font-size: 18px;
+            transition: transform 0.25s;
+            flex-shrink: 0;
+        }
+
+        .faq-btn.open .faq-chevron { transform: rotate(180deg); }
+
+        .faq-body {
+            display: none;
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--slate-500);
+            line-height: 1.7;
+            background: var(--slate-50);
+            border-top: 1px solid var(--slate-100);
+        }
+
+        .faq-body.open { display: block; padding-top: 20px; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: white;
+            border-top: 1px solid var(--slate-200);
+            text-align: center;
+            padding: 48px 24px;
+        }
+
+        .footer-logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--cyan-mid);
+            color: white;
+            border-radius: 10px;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        footer p {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--slate-400);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 4px;
+        }
+
+        footer small {
+            font-size: 13px;
+            color: var(--slate-500);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            nav { padding: 12px 16px; }
+            .nav-sub { display: none; }
+            .hero { padding: 48px 20px 64px; }
+            section { padding: 56px 20px; }
+            .tab-content { padding: 24px; }
+            .btn-hero { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de urgencia -->
+    <div class="urgency-bar">
+        <span>
+            ⏰ CRONOGRAMA PAD 2026: El período de reclamos finaliza el 11 de Mayo
+        </span>
+    </div>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-brand">
+            <svg class="nav-logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="10" fill="#111111"/>
+            <text x="50" y="52" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="38" fill="#555555" letter-spacing="-2">SAD</text>
+            <text x="50" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#00c8e0" letter-spacing="3">LA COSTA</text>
+          </svg>
+            <div>
+                <div class="nav-title">SAD La Costa</div>
+                <div class="nav-sub">Secretaría de Asuntos Docentes</div>
+            </div>
+        </div>
+        <a href="https://abc.gob.ar/" target="_blank" rel="noopener" class="btn-primary">
+            Portal ABC ↗
+        </a>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-badge">Guía Oficial · Distrito La Costa</div>
+            <h1>Tu Puntaje Docente<br><span class="accent">2026</span> bajo control.</h1>
+            <p>
+                Visualizá tu PAD del <strong>13 al 24 de abril</strong>. Asegurate de que tu carrera esté bien calificada antes del cierre definitivo de reclamos.
+            </p>
+            <a href="http://servicios.abc.gob.ar/servaddo/puntaje.anual.docente/" target="_blank" rel="noopener" class="btn-hero">
+                Ver mi PAD en ABC →
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección: Cómo se compone el PAD -->
+    <section style="background: var(--slate-50);">
+        <div class="container">
+            <h2 class="section-title">¿Cómo se compone el PAD?</h2>
+            <p class="section-sub">Entendé la fórmula de clasificación según el Estatuto Docente.</p>
+
+            <div class="tabs-wrapper">
+                <!-- Botones de tabs -->
+                <div class="tabs-nav">
+                    <button class="tab-btn active" onclick="openTab('formula', this)">📐 La Fórmula</button>
+                    <button class="tab-btn" onclick="openTab('titulos', this)">📄 Títulos</button>
+                    <button class="tab-btn" onclick="openTab('antiguedad', this)">⏱ Antigüedad</button>
+                </div>
+
+                <!-- Tab: Fórmula -->
+                <div id="formula" class="tab-content active">
+                    <div class="formula-box">
+                        <p class="formula-text">
+                            (Habilitante + Bonificantes + Jerárquico + Antigüedad)
+                            <span class="formula-op">×</span>
+                            Promedio de Calificaciones
+                        </p>
+                    </div>
+                    <div class="formula-grid">
+                        <div class="formula-card cyan">
+                            <span class="formula-card-label">Habilitante</span>
+                            <p>Título base con el que ingresás al cargo (1 a 25 pts).</p>
+                        </div>
+                        <div class="formula-card pink">
+                            <span class="formula-card-label">Bonificantes</span>
+                            <p>Cursos y capacitaciones extras (máximo 10 pts).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab: Títulos -->
+                <div id="titulos" class="tab-content">
+                    <div class="alert-amber">
+                        <h4>⚠️ Importante</h4>
+                        <p>Un mismo curso puede tener distinto valor según el PID (Cargo) en el que clasifiques. Siempre verificá el Nomenclador de Títulos oficial.</p>
+                    </div>
+                    <blockquote style="color: var(--slate-500); font-style: italic; font-size: 14px; border-left: 3px solid var(--slate-200); padding-left: 16px; line-height: 1.7;">
+                        "Los títulos y cursos deben estar registrados en el Consejo Escolar antes del 30 de septiembre del año anterior."
+                    </blockquote>
+                </div>
+
+                <!-- Tab: Antigüedad -->
+                <div id="antiguedad" class="tab-content">
+                    <div class="antiguedad-grid">
+                        <div class="dark-card">
+                            <p>Se computan servicios en DGCyE al 31 de diciembre. Se otorga 1 punto por año o fracción mayor a 6 meses.</p>
+                            <div class="dark-card-divider">
+                                <span class="code-label">Ejemplo de redondeo:</span>
+                                <p class="example-row">5 años y 5 meses → 5.00 pts</p>
+                                <p class="example-row highlight">5 años y 6 meses → 6.00 pts ✓</p>
+                            </div>
+                        </div>
+                        <div class="light-card">
+                            <h4>Gestión Privada</h4>
+                            <p>Para acreditar servicios en colegios privados, debés presentar el formulario <strong>CEC 15</strong> homologado por DIEGEP.</p>
+                            <span class="badge-warning">🛡 Requiere reconocimiento previo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Cronograma de Reclamos -->
+    <section class="dark-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 56px;">Cronograma de Reclamos</h2>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot cyan">📅</div>
+                    <div class="timeline-body">
+                        <div class="timeline-date cyan">13 al 24 de Abril</div>
+                        <h4>Visualización Obligatoria</h4>
+                        <p>Ingresá a SERVADO PAD en ABC. Al visualizar tu puntaje quedás <strong>notificado de forma legal</strong>.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="margin-bottom: 0;">
+                    <div class="timeline-dot pink">⚠️</div>
+                    <div class="timeline-body">
+                        <div class="timeline-date pink">Hasta el 11 de Mayo</div>
+                        <h4>Plazo para Reclamar</h4>
+                        <p>Si detectás errores, usá el botón <strong>"RECURRIR"</strong>. Pasada esta fecha, el puntaje queda firme.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="docs-box">
+                <p class="docs-box-title">Documentación en PDF para reclamos</p>
+                <div class="docs-grid">
+                    <div class="doc-item">
+                        <span class="doc-icon">✅</span>
+                        <span>Títulos (Anverso y Reverso)</span>
+                    </div>
+                    <div class="doc-item">
+                        <span class="doc-icon">✅</span>
+                        <span>Formulario 354 (Antigüedad)</span>
+                    </div>
+                    <div class="doc-item">
+                        <span class="doc-icon">✅</span>
+                        <span>Calificaciones SET 4</span>
+                    </div>
+                    <div class="doc-item">
+                        <span class="doc-icon">✅</span>
+                        <span>DNI y CUIL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: FAQ -->
+    <section class="faq-section">
+        <div class="container" style="max-width: 680px;">
+            <h2 class="section-title">Ayuda Directa</h2>
+            <p class="section-sub">Preguntas frecuentes de docentes del distrito.</p>
+
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">
+                    ¿Qué pasa si tengo dos cargos titulares?
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-body">
+                    Se clasifica cada cargo de forma independiente. Para cada uno se tiene en cuenta el título con el que ingresaste y sus antigüedades específicas.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">
+                    ¿Cómo visualizo mi puntaje?
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-body">
+                    Ingresá al Portal ABC con tu usuario y clave. Buscá el aplicativo "SERVADO PAD" y seleccioná el año de visualización 2026.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">
+                    ¿Qué pasa si no visualizo en el período indicado?
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-body">
+                    La visualización dentro del período (13 al 24 de abril) es obligatoria y tiene carácter de notificación legal. Si no ingresás, se considera que fuiste notificado igualmente.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-btn" onclick="toggleFaq(this)">
+                    ¿Cuánto vale un curso de capacitación?
+                    <span class="faq-chevron">▾</span>
+                </button>
+                <div class="faq-body">
+                    El valor depende de la cantidad de horas y si fue acreditado por la DGCyE. Además, el puntaje puede variar según el cargo (PID) en el que clasifiques. Consultá el Nomenclador de Títulos oficial.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <svg style="height:56px;width:56px;margin-bottom:16px;" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100" height="100" rx="10" fill="#111111"/>
+        <text x="50" y="52" text-anchor="middle" font-family="Arial Black, sans-serif" font-weight="900" font-size="38" fill="#555555" letter-spacing="-2">SAD</text>
+        <text x="50" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11" fill="#00c8e0" letter-spacing="3">LA COSTA</text>
+      </svg>
+        <p>SAD La Costa · PBA 2026</p>
+        <small>Secretaría de Asuntos Docentes — Distrito La Costa</small>
+        <p style="margin-top:12px;font-size:11px;color:var(--slate-400);">Desarrollado por <strong style="color:var(--slate-500);">Pablo Maldonado</strong></p>
+    </footer>
+
+    <script>
+        function openTab(tabName, clickedBtn) {
+            document.querySelectorAll('.tab-content').forEach(function(c) {
+                c.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+            clickedBtn.classList.add('active');
+        }
+
+        function toggleFaq(btn) {
+            var body = btn.nextElementSibling;
+            var isOpen = body.classList.contains('open');
+            document.querySelectorAll('.faq-body').forEach(function(b) {
+                b.classList.remove('open');
+            });
+            document.querySelectorAll('.faq-btn').forEach(function(b) {
+                b.classList.remove('open');
+            });
+            if (!isOpen) {
+                body.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>
