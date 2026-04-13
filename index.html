@@ -696,7 +696,7 @@
                         </div>
                         <div class="light-card">
                             <h4>Gestión Privada</h4>
-                            <p>Para acreditar servicios en colegios privados, debés solicitar cetificado de aportes privados.</p>
+                            <p>Para acreditar servicios en colegios privados, debés solicitar el <strong>certificado de aportes privados</strong>.</p>
                             <span class="badge-warning">🛡 Requiere reconocimiento previo</span>
                         </div>
                     </div>
@@ -726,7 +726,7 @@
                         <div class="timeline-date pink">Hasta el 11 de Mayo</div>
                         <h4>Plazo para Reclamar</h4>
                         <p>1) Si detectás errores, usá el botón <strong>"RECURRIR"</strong>. Pasada esta fecha, el puntaje queda firme.</p>
-                        <p style="margin-top:10px;">2) Presentar legajo digital a <a href="mailto:pad2020sad123@abc.gob.ar" style="color:#f472b6;font-weight:700;">pad2020sad123@abc.gob.ar</a></p>
+                        <p style="margin-top:10px;">2) Presentar legajo digital a <span style="color:#f472b6;font-weight:700;">pad2020sad123&#64;abc.gob.ar</span></p>
                     </div>
                 </div>
             </div>
@@ -786,7 +786,7 @@
         <p style="margin-top:12px;font-size:11px;color:var(--slate-400);">Desarrollado por <strong style="color:var(--slate-500);">Pablo Maldonado</strong></p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function openTab(tabName, clickedBtn) {
             document.querySelectorAll('.tab-content').forEach(function(c) {
                 c.classList.remove('active');
@@ -804,4 +804,14 @@
             document.querySelectorAll('.faq-body').forEach(function(b) {
                 b.classList.remove('open');
             });
-            document.querySelectorAll('.faq-btn
+            document.querySelectorAll('.faq-btn').forEach(function(b) {
+                b.classList.remove('open');
+            });
+            if (!isOpen) {
+                body.classList.add('open');
+                btn.classList.add('open');
+            }
+        }
+    </script>
+</body>
+</html>
